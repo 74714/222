@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Web Page Title</title>
+
+    <style>
+        /* CSS Styles */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffd0ef;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        header {
+            background-color: #ff69b4;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        
+        .flashcard {
+            width: 400px;
+            background-color: #ffd6e2;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.408);
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .question {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #ff1493;
+        }
+        
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #ff69b4;
+            /* Pink footer background color */
+            color: #fff;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚</h1>
+    </header>
+
+    <div class="content">
+        <div class="flashcard" id="flashcard" onclick="generateRandomQuestion()">
+            <div class="question" id="question"> click to play </div>
+        </div>
+    </div>
+
+    <script>
+        var questions = [
+            "If you could switch lives with someone in this room for a day, who would it be and why?",
+            "What's the most embarrassing thing you've ever done in front of a crush?",
+            "If you had to eat one type of cuisine for the rest of your life, what would it be?",
+            "Share a funny childhood memory that still makes you laugh today.",
+            "If you were a superhero, what would your superpower be and what would your superhero name be?",
+            "What's the most adventurous thing you've ever done?",
+            "If you had to spend a day without your phone, how would you spend it?",
+            "Share a guilty pleasure song that you secretly love.",
+            "If you could time travel, what historical period would you visit?",
+            "What's the weirdest dream you've ever had?",
+            "If you could have dinner with any historical figure, who would it be and why?",
+            "Share a hidden talent that most people don't know about.",
+            "If you could have any animal as a pet, real or fictional, what would it be?",
+            "What's your go-to dance move when you're on the dance floor?",
+            "If you were stranded on a deserted island, what three things would you want to have with you?",
+            "Share a funny or interesting fact about yourself that not many people know.",
+            "If you could be famous for one thing, what would it be?",
+            "What's the most unusual food you've ever tried and did you like it?",
+            "If you could be a character in any movie or TV show, who would you be?",
+            "Share a nickname you had as a child and the story behind it."
+        ];
+
+        var usedQuestions = [];
+
+        function generateRandomQuestion() {
+            if (usedQuestions.length === questions.length) {
+                // Reset used questions if all have been used
+                usedQuestions = [];
+            }
+
+            var remainingQuestions = questions.filter(q => !usedQuestions.includes(q));
+
+            var randomIndex = Math.floor(Math.random() * remainingQuestions.length);
+            var randomQuestion = remainingQuestions[randomIndex];
+
+            document.getElementById("question").innerText = randomQuestion;
+            usedQuestions.push(randomQuestion);
+        }
+    </script>
+
+    <footer>
+        &copy; idk
+    </footer>
+
+</body>
+
+</html>
